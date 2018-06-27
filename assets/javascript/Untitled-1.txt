@@ -1,0 +1,11 @@
+user imputs name location logged to file when logged it writes dates it was added
+
+make function to recive both imputs 
+
+when function adds in log takes in time and adds time stamp
+
+function programmer (name , location){
+    this.name = name; 
+    this.location= location;
+    this.date= 
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Grub Quest</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href='./assets/css/style.css' rel='stylesheet'>
+    <script src='./assets/javascript/jquery-3.3.1.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji|Montserrat|Bungee+Inline|Fira+Sans+Condensed:500" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+
+</head>
+<nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand navbar-dark" href="#">GrubQuest</a>
+
+<div class="navbar-dark" id="price-nav"></div>
+<div class="navbar-dark" id="adventure-nav"></div>
+
+    
+</nav>
+    
+
+<body>
+    
+    <div class="container">
+        <br>
+        <div id="initial-categories"></div>
+        </div>
+
+<!-- Button trigger modal -->
+
+<div class="container text-shadow-drop-center" id="name">
+  <h1 id="name">GrubQuest</h1>
+</div>
+<div class="container">
+<button type="button" id="startbutton" class="btn btn-tertiary btn-lg scale-in-hor-center" data-toggle="modal" data-target="#addressmodal">
+    Click Here to Start
+  </button>
+</div>  
+  <!-- Address Modal -->
+  <div class="modal fade text-focus-in" id="addressmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalLabel">Enter Your Address</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+            <form>
+
+                <div class="form-group"> <!-- Street 1 -->
+                    <label for="street1_id" class="control-label">Street Address:</label>
+                    <input type="text" class="form-control" id="street1_id" name="street1" placeholder="123 Main St.">
+                </div>					
+                <div class="row">
+                <div class="col-sm-7">    
+                <div class="form-group"> <!-- City-->
+                    <label for="city_id" class="control-label">City:</label>
+                    <input type="text" class="form-control" id="city_id" name="city" placeholder="Anytown">
+                </div>	
+                </div>								
+                <div class="col-sm-2">                     
+                <div class="form-group"> <!-- State -->  
+                    <label for="state_id" class="control-label">State:</label>
+                    <input type="text" class="form-control" id="state_id" name="ST" placeholder="ST">      
+                </div>
+                </div>
+                <div class="col-sm-3">       
+                <div class="form-group"> <!-- Zip Code-->
+                    <label for="zip_id" class="control-label">Zip Code:</label>
+                    <input type="text" class="form-control" id="zip_id" name="zip" placeholder="#####">
+                </div>	
+                </div>
+                </div>
+                </form>        
+            </form>	
+            <h6>How fancy are you?</h6>
+            <form id="price">
+                    <input type="radio" id="dollars" name="dollars" value="cheap" checked> $ - $$<br>
+                    <input type="radio" id="dollars" name="dollars" value="expensive" > $$$ - $$$$<br>
+                    <br>
+            </form>
+            <h6>How adventurous are you?</h6>
+            <form id="adventure">
+                <input type="radio" id="stars" name="stars" value="all" checked> I'm willing to try anything!<br>
+                <input type="radio" id="stars" name="stars" value="most"> I'll try something new if it is well rated.<br>
+                <input type="radio" id="stars" name="stars" value="best"> I only want the standards. 
+                <br>
+            </form>  
+            <br>
+            <div class="form-group"> <!--Radius-->
+                <label for="radius" class="control-label">How far do you want to go?</label>
+                <input type="number" class="form-control" id="radius" name="radius" placeholder="miles">
+            </div>	 
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="address" class="btn btn-primary" data-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Restaurant Info Modal -->
+<div class="modal slit-in-vertical" id="restaurantmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="rmodal-title" id="RestaurantModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="container">
+        <div class="rmodal-body">
+          
+            
+        </div>
+        </div>
+        <div class="rmodal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Form Validation Modal -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="validation-modal" tabindex="-1" role="dialog" aria-labelledby="validationModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="validation-modalLabel">Warning</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4>Please enter a valid address:</h4><br>
+          <strong>Street Address:</strong><br>
+          123 Fake St.<br>
+          <strong>City:</strong><br>
+          Springfield<br>
+          <strong>State:</strong><br>
+          OH<br>
+           <strong>Zip Code:</strong><br>
+           45501<br>
+           <strong>Radius:</strong><br>
+           20<br>
+         
+
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src='./assets/javascript/app.js'></script>
+</body>
+
+
+</html>
